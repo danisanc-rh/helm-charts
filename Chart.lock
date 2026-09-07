@@ -1,0 +1,6 @@
+dependencies:
+- name: generic-helm-chart
+  repository: https://danisanc-rh.github.io/helm-charts/
+  version: 1.0.0
+digest: sha256:ea94ba7a6398e5b3713b8b4e6b3cc0dc37271835cb25cad8b65497afcee94529
+generated: "2026-09-07T18:38:42.674196-05:00"

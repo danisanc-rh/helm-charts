@@ -1,0 +1,10 @@
+apiVersion: v2
+version: 0.1.0
+type: application
+description: Chart genérico para microservicios (Deployment, Service, Route y HPA)
+name: helm-chart
+appVersion: "1.0.0"
+dependencies:
+  - name: generic-helm-chart # Nombre exacto de chart publicado en GitHub
+    version: 1.0.0  # La versión exacta de chart publicado en GitHub
+    repository: https://danisanc-rh.github.io/helm-charts/ # URL del page donde el chart esta publicado en GitHub

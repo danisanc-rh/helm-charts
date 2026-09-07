@@ -1,0 +1,89 @@
+# Values por defecto del chart de microservicio.
+# Los archivos values-<env>.yaml generados desde los manifests .yaml
+# de cada servicio sobreescriben estos valores.
+#
+# Mapeo manifiesto K8s -> values:
+#   metadata.name                 -> nameOverride / fullnameOverride
+#   metadata.namespace            -> namespace
+#   metadata.labels.app           -> labels.app
+#   spec.replicas                 -> replicaCount
+#   spec.revisionHistoryLimit     -> revisionHistoryLimit (opcional)
+#   container.image               -> image.repository + image.tag
+#   container.imagePullPolicy     -> image.pullPolicy
+#   container.ports[].containerPort -> containerPort
+#   container.env                 -> env
+#   container.envFrom             -> envFrom
+#   container.resources           -> resources
+#   spec.template.spec.imagePullSecrets -> imagePullSecrets
+#   spec.template.spec.hostNetwork -> hostNetwork
+#   spec.template.spec.dnsPolicy  -> dnsPolicy
+#   Service                       -> service.*
+#   Ingress                       -> route.* (Route de OpenShift; no se genera Ingress)
+#   Route                         -> route.*
+#   HorizontalPodAutoscaler       -> autoscaling.*
+
+generic-helm-chart:
+  nameOverride: ""
+  fullnameOverride: ""
+  namespace: ""
+
+  replicaCount: 1
+
+  labels:
+    app: ""
+
+  image:
+    repository: example/app
+    tag: latest
+    pullPolicy: IfNotPresent
+
+  imagePullSecrets: []
+
+  containerPort: 8080
+
+  env: []
+  # - name: JAVA_TOOL_OPTIONS
+  #   value: "-XX:+UseG1GC"
+
+  envFrom: []
+  # - configMapRef:
+  #     name: config-tp
+
+  resources: {}
+  #  requests:
+  #    cpu: 250m
+  #    memory: 512Mi
+  #  limits:
+  #    cpu: "1"
+  #    memory: 1Gi
+
+  hostNetwork: false
+  dnsPolicy: ClusterFirst
+
+  service:
+    enabled: true
+    type: ClusterIP
+    port: 80
+    targetPort: 8080
+    name: http
+
+  route:
+    enabled: true
+    host: ""
+    path: ""
+    serviceName: ""
+    targetPort: ""
+    weight: 100
+    wildcardPolicy: "None"
+    annotations: {}
+    tls:
+      enabled: false
+      termination: edge
+      insecureEdgeTerminationPolicy: Redirect
+
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 3
+    targetCPUUtilizationPercentage: 70
+    targetMemoryUtilizationPercentage:
