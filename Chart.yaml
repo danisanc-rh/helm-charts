@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: "1.0.0"
+type: application
+name: generic-helm-chart
+description: Chart genérico para microservicios (Deployment, Service, Route y HPA)
+version: 1.0.0
