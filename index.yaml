@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  helm-chart:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-09-07T17:15:46.066341-05:00"
+    description: Chart genérico para microservicios (Deployment, Service, Route y
+      HPA)
+    digest: 21ea0a310d85c3406677de4ea977f52a4edec7132b21adb549d3e2da27f86906
+    name: helm-chart
+    type: application
+    urls:
+    - https://danisanc-rh.github.io/helm-charts/helm-chart-0.1.0.tgz
+    version: 0.1.0
+generated: "2026-09-07T17:15:46.065375-05:00"
